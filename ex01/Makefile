@@ -1,7 +1,7 @@
 SRCS			= Zombie.cpp \
 				  main.cpp \
-				  randomChump.cpp \
-				  newZombie.cpp
+				  zombieHorde.cpp
+
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++

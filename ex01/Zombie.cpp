@@ -1,9 +1,8 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-Zombie::Zombie( std::string name )
+Zombie::Zombie( void )
 {
-    this->name = name;
 }
 
 void Zombie::announce( void )
