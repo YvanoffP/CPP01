@@ -6,13 +6,14 @@ OBJS			= $(SRCS:.cpp=.o)
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
+CPP_FLAGS       = -std=c++98
 
 NAME			= harlFilter
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+				$(CXX) $(CXXFLAGS) $(CPP_FLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
