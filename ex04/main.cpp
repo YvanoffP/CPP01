@@ -42,8 +42,21 @@ int replace(char **argv)
             std::cout << "No occurence found, file has been copied but not changed" << std::endl;
 		output << content;
 	}
-	else
-		return(error("File does not exist in this directory"));
+	else if (file.fail())
+    {
+        std::cout << "error: " << strerror(errno) << std::endl;
+        return (1);
+    }
+    else if (file.bad())
+    {
+        std::cout << "error: file corrupted" << std::endl;
+        return (1);
+    }
+    else
+    {
+        std::cout << "error: file does not exist" << std::endl;
+        return (1);
+    }
     return (0);
 }
 
