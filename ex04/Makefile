@@ -4,7 +4,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -pedantic -I.
 CPP_FLAGS       = -std=c++98
 
 NAME			= replacer
