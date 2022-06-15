@@ -47,7 +47,7 @@ void Harl::complain( std::string level )
         &Harl::error
     };
 
-    for (size_t i = 0; i < sizeof(cringe); i++)
+    for (size_t i = 0; i < 4; i++)
     {
         if (cringe[i] == level)
         {
