@@ -8,13 +8,9 @@ int	error(std::string status)
 	return (1);
 }
 
-int	main(int argc, char** argv)
+int replace(char **argv)
 {
-	if (argc != 4)
-		return (error("Too many/few arguments"));
-	if (!argv[2] || !argv[3])
-		return (error("Empty strings provided as arguments"));
-
+    bool                replaced = false;
 	std::ifstream		file(argv[1]);
 	std::string			filename;
 	std::string			content;
@@ -23,7 +19,7 @@ int	main(int argc, char** argv)
 	std::stringstream	buff;
 	size_t				pos;
 
-	if( file.is_open())
+	if(file.is_open())
 	{
 		pos = 0;
 		s1 = argv[2];
@@ -40,10 +36,22 @@ int	main(int argc, char** argv)
 			content.erase(pos, s1.length());
 			content.insert(pos, s2);
 			pos += s2.length();
+            replaced = true;
 		}
+        if (!replaced)
+            std::cout << "No occurence found, file has been copied but not changed" << std::endl;
 		output << content;
 	}
 	else
 		return(error("File does not exist in this directory"));
-	return (0);
+    return (0);
+}
+
+int	main(int argc, char** argv)
+{
+	if (argc != 4)
+		return (error("Too many/few arguments"));
+	if (!argv[2] || !argv[3])
+		return (error("Empty strings provided as arguments"));
+	return (replace(argv));
 }
